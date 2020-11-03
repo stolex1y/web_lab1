@@ -34,6 +34,7 @@ if (isset($_REQUEST['button-submit'])) {
 
     include "check.php";
     try {
+        $Y = str_replace(",", ".", $Y);
         if (is_numeric($Y)) {
             if ($Y >= -3 && $Y <= 5) {
                 $Y = round($Y, 5);
@@ -43,6 +44,7 @@ if (isset($_REQUEST['button-submit'])) {
         }
 
         $result = check((int)$X, (float)$Y, (int)$R) ? "Попадание" : "Промах";
+        $Y = str_replace(".", ",", $Y);
         $script_end = microtime(true);
 
         $cookie =
